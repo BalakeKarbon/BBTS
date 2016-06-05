@@ -2,7 +2,9 @@ var bs = require('bonescript');
 function getTemp() {
 	bs.analogRead('P9_40', callback);
 }
+var temp;
 function callback(data) {
-	console.log(data);
+	temp = ((data / 100)*1.8)
+	console.log(temp);
 }
-setTimeout(500,getTemp);
+setTimeout(getTemp,500);
